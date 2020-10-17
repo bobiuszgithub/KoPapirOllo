@@ -3,6 +3,7 @@ package org.gykrdolgozat.kopapirollo;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AlertDialog;
 
+import android.content.DialogInterface;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -23,43 +24,44 @@ public class MainActivity extends AppCompatActivity {
     private Random rng;
     private Toast toastComputer, toastEmber;
     private int jatekosSzam, randomSzam, elet, cPont, ePont;
-
+    private AlertDialog alertDialog;
+    private AlertDialog.Builder builder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+            buttonKo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    jatekosSzam = 1;
+                    jatekosValasz.setImageResource(R.drawable.rock);
+                    computerValasztas();
+                    kpr();
 
-        buttonKo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                jatekosSzam = 1;
-                jatekosValasz.setImageResource(R.drawable.rock);
-                computerValasztas();
-                kpr();
 
+                }
+            });
+            buttonPapir.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    jatekosSzam = 2;
+                    jatekosValasz.setImageResource(R.drawable.paper);
+                    computerValasztas();
+                    kpr();
+                }
+            });
 
-            }
-        });
-        buttonPapir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                jatekosSzam = 2;
-                jatekosValasz.setImageResource(R.drawable.paper);
-                computerValasztas();
-                kpr();
-            }
-        });
+            buttonOllo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    jatekosSzam = 3;
+                    jatekosValasz.setImageResource(R.drawable.scissors);
+                    computerValasztas();
+                    kpr();
+                }
+            });
 
-        buttonOllo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                jatekosSzam = 3;
-                jatekosValasz.setImageResource(R.drawable.scissors);
-                computerValasztas();
-                kpr();
-            }
-        });
 
     }
 
@@ -75,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void kpr() {
-
         if (jatekosSzam == 1 && randomSzam == 3) {
             toastEmber.show();
             ePont++;
@@ -101,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
             ePont++;
             textEmberPont.setText(" Ember: " + ePont);
         }
-
     }
 
 
@@ -129,6 +129,33 @@ public class MainActivity extends AppCompatActivity {
         toastComputer.setGravity(Gravity.CENTER, 0, 0);
         View view1 = getLayoutInflater().inflate(R.layout.computer_toast, (ViewGroup) findViewById(R.id.customToast));
         toastComputer.setView(view1);
+
+
+        builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setMessage("Szeretnenk e uj jatekot?");
+        builder.setPositiveButton("Igen", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //reset kell az értékeket
+            }
+        });
+        builder.setNegativeButton("Nem", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+
+                dialog.cancel();
+            }
+        });
+        builder.setTitle("Jatek vege");
+        builder.setCancelable(false);
+
+        alertDialog = builder.create();
+
+
+
+
+
     }
 
 
