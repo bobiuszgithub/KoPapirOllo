@@ -11,7 +11,7 @@
 <ImageView
     android:layout_width="wrap_content"
     android:layout_height="150dp"
-    android:id="@+id/rock"
+    android:id="@+id/iv_Evalasz"
     android:src="@drawable/rock"
     />
     <TextView
@@ -23,7 +23,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="150dp"
-        android:id="@+id/rock2"
+        android:id="@+id/iv_Cvalasz"
         android:src="@drawable/rock"
         />
     <TextView
