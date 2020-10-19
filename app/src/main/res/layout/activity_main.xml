@@ -30,7 +30,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:text="Gép"
             />
         <TextView
@@ -42,7 +42,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:text="Játékos"
             />
         <ImageView
@@ -66,7 +66,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:text="Döntetlenek száma: 0"
         android:id="@+id/text_dontetlen"
         />
@@ -74,14 +74,14 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="130dp"
+        android:layout_height="120dp"
         android:id="@+id/iv_Cvalasz"
         android:src="@drawable/rock"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:text="A gép választása"
         />
 
@@ -112,14 +112,14 @@
 <!--    </LinearLayout>-->
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="130dp"
+        android:layout_height="120dp"
         android:id="@+id/iv_Evalasz"
         android:src="@drawable/rock"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:text="A te választásod"
         />
     <LinearLayout
